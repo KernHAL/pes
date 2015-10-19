@@ -42,31 +42,23 @@ void check_pentagonal_sums(int *pentagonals, int size) {
             if (i == j)
                 continue;
 
-            bool is_sum_pentagnal = false;
             int sum = pentagonals[i] + pentagonals[j];
-            printf("p[%d] + p[%d] = %d\n", i+1, j+1, sum);
-            printf("%d + %d = %d", pentagonals[i], pentagonals[j], sum);
+            //printf("p[%d] + p[%d] = %d\n", i+1, j+1, sum);
+            //printf("%d + %d = %d\n", pentagonals[i], pentagonals[j], sum);
 
-            for(int index = (i<j)?(j):(i); index < LIMIT ;index++){
-            printf("the index is: %d\n", index);
-                while (sum >= pentagonals[index]){
-                    if (sum == pentagonals[index]){
-                        is_sum_pentagnal = true;
+            for(int index = (i<j)?(j):(i); index < LIMIT; index++){
+            //printf("the index is: %d\n", index);
 
-                    }
-                }
-
-                if (is_sum_pentagnal  == true) {
-                    printf("\n---------------------------\n");
-                    printf("Got it!\n");
-                    printf ("p[%d] + p[%d] = p[%d]\n", i, j, index);
-                    printf("\n---------------------------\n");
-
-                    is_sum_pentagnal = false;
-
-                }
+            if (sum == pentagonals[index]){
+                printf("\n---------------------------\n");
+                printf("Got it!\n");
+                printf ("p[%d] + p[%d] = p[%d]\n", i, j, index);
+                printf("\n---------------------------\n");
             }
 
+            if (sum < pentagonals[index] )
+                break;
+            }
         }
     }
 }
