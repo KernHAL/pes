@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#define LIMIT 1000
+#define LIMIT 10000
 
 void find_pentagonals (int *pentagonals, int size);
 void check_pentagonal_sums (int *pentagonals, int size);
@@ -46,14 +46,23 @@ void check_pentagonal_sums(int *pentagonals, int size) {
             //printf("p[%d] + p[%d] = %d\n", i+1, j+1, sum);
             //printf("%d + %d = %d\n", pentagonals[i], pentagonals[j], sum);
 
-            for(int index = (i<j)?(j):(i); index < LIMIT; index++){
+            for (int index = (i<j)?(j):(i); index < LIMIT; index++) {
             //printf("the index is: %d\n", index);
 
-            if (sum == pentagonals[index]){
-                printf("\n---------------------------\n");
-                printf("Got it!\n");
+            if (sum == pentagonals[index]) {
                 printf ("p[%d] + p[%d] = p[%d]\n", i+1, j+1, index+1);
                 printf("\n---------------------------\n");
+
+                int delta = abs(pentagonals[i] - pentagonals[j]);
+                int ulimit = (i>j) ? i : j;
+                for(int k = 0; k < ulimit; k++) {
+                    if (delta == pentagonals[k]) {
+                        printf("\n---------------------------\n");
+                        printf("Found DELTA: %d \n", delta);
+                        printf("\n---------------------------\n");
+                    }
+
+                }
             }
 
             if (sum < pentagonals[index] )
