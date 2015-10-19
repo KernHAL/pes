@@ -52,7 +52,7 @@ void check_pentagonal_sums(int *pentagonals, int size) {
             if (sum == pentagonals[index]){
                 printf("\n---------------------------\n");
                 printf("Got it!\n");
-                printf ("p[%d] + p[%d] = p[%d]\n", i, j, index);
+                printf ("p[%d] + p[%d] = p[%d]\n", i+1, j+1, index+1);
                 printf("\n---------------------------\n");
             }
 
